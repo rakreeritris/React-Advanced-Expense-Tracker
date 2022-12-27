@@ -26,8 +26,22 @@
     align-items: center;
     background: rgb(83,100,101);
     background: linear-gradient(90deg, rgba(83,100,101,1) 0%, rgba(74,109,222,1) 21%, rgba(7,63,237,1) 100%);
+  /*   background: url(../Images/backgroundimage.jpg);
+    background-repeat: no-repeat;
+    background-size:cover; */
     height:102vh;
     width: 100vw;
+}
+.form-name{
+    outline: none;
+    padding: 14px;
+    width: 20rem;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 20px;
+    border-radius: 26px;
+
 }
 
 .formWrapper{
@@ -80,7 +94,7 @@
     font-weight: bold;
     cursor: pointer;
 }
-.link-register{
+.link-login{
     text-decoration: none;
     color: wheat;
     font-size: 1rem;
@@ -88,7 +102,7 @@
     margin-left: 9px;
 
 }
-.link-register:hover{
+.link-login:hover{
     color: #0b062d;
 }
 .form-tag{
@@ -98,6 +112,11 @@
 }
 .signup-url{
     display: flex;
+}
+.form-image-upload
+{
+/*     border: 2px solid black; */
+    padding-left: 90px;
 }
 @media screen and (max-width:350px) {
     .form-email{

@@ -1,7 +1,99 @@
-/* *{
-  overflow-y: scroll;
-} */
-#img{
-    width: 100px;
-    height: 100px;
+
+.home-nav{
+  display: flex;
+  justify-content: space-between;
+  background: rgb(77,108,205);
+  background: linear-gradient(90deg, rgba(77,108,205,1) 7%, rgba(77,108,205,1) 41%, rgba(83,100,101,1) 100%);
+  padding-top: 7px;
+  padding-bottom: 7px;
+
+}
+.nav-logoimg{
+  width: 50px;
+  height: 50px;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-right: 11px;
+}
+.nav-heading{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+.nav-logo-title{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+.nav-profileimg {
+  width: 56px;
+  height: 48px;
+  border-radius: 50%;
+  padding-right: 15px;
+}
+.nav-profile{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  
+}
+.nav-profilename{
+ 
+  padding-right: 15px;
+  
+}
+.nav-logout{
+  display: flex;
+  width: 110px;
+  height: 45px;
+  margin-right: 10px;
+  background-color: rgb(71, 71, 208);
+  color: wheat;
+  font-weight: bold;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+}
+.creditsanddebits{
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  
+}
+.credit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  width: 30%;
+  height: 150px;
+
+}
+.debit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  width: 30%;
+  height: 150px;
+}
+.credit-amt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.debit-amt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+
 }

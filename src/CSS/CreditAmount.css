@@ -1,0 +1,17 @@
+.credit{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    width: 400px;
+    height: 150px;
+   color: black;
+  
+  }
+  .credit-amt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }

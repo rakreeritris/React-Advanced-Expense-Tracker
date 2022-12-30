@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../context/AuthContext";
 import { db } from "../firebase";
-import "./credit.css";
 import DeleteButton from "./DeleteButton";
 import UpdateButton from "./UpdateButton";
-function Credit() {
+import CreditAmount from "./CreditAmount";
+import "../CSS/CreditList.css";
+function CreditList() {
   const [credit, setCredit] = useState(0);
   const [msgArr, setMsgArr] = useState([]);
   const { currentUser } = useContext(AuthContext);
@@ -39,24 +40,30 @@ function Credit() {
   const updatedArray = msgArr.filter((msg) => msg.typeofAmount === "CREDIT");
   return (
     <div>
-      credit amout-{credit}
-      {updatedArray?.map((msg) => (
-        <div id="tran" key={msg.Id}>
-          <div>Given by whom-{msg.person}</div>
-          <div>Amount-{msg.amount}</div>
-          <div>short message-{msg.Msg}</div>
-          <div>
-            <DeleteButton Id={msg.Id}></DeleteButton>
+      <div className="creditAmt">
+        <CreditAmount></CreditAmount>
+      </div>
+      <span>TRANSACTION LIST</span>
+      <div className="creditlst">
+        <div></div>
+        {updatedArray?.map((msg) => (
+          <div className="tran" key={msg.Id}>
+            <div>Given by whom-{msg.person}</div>
+            <div>Amount-{msg.amount}</div>
+            <div>short message-{msg.Msg}</div>
+            <div>
+              <DeleteButton Id={msg.Id}></DeleteButton>
+            </div>
+            <div>
+              <UpdateButton Id={msg.Id}></UpdateButton>
+            </div>
           </div>
-          <div>
-            <UpdateButton Id={msg.Id}></UpdateButton>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
 
-export default Credit;
+export default CreditList;
 
 /* export const credit=credit; */

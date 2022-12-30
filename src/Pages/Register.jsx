@@ -9,7 +9,7 @@ import { db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "./Register.css";
+import "../CSS/Register.css";
 import img from "../Images/logo.jpg";
 function Register() {
   const [err, setError] = useState(false);

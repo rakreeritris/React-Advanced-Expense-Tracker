@@ -1,4 +1,9 @@
-
+.Home{
+  background: rgb(71,223,232);
+background: linear-gradient(90deg, rgba(71,223,232,1) 0%, rgba(43,77,224,1) 32%, rgba(7,63,237,1) 100%);
+overflow: hidden;
+padding-bottom: 116px;
+}
 .home-nav{
   display: flex;
   justify-content: space-between;
@@ -65,35 +70,17 @@
   padding-top: 20px;
   
 }
-.credit{
+.formandchart{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  width: 30%;
-  height: 150px;
+  justify-content: space-around;
+  
+}
 
+.link-credit{
+  text-decoration: none;
+  color: black;
 }
-.debit{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid black;
-  width: 30%;
-  height: 150px;
-}
-.credit-amt{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-}
-.debit-amt{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-
+.link-debit{
+  text-decoration: none;
+  color: black;
 }

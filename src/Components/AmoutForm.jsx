@@ -3,6 +3,7 @@ import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { v4 as uuid } from "uuid";
+import "../CSS/AmountForm.css";
 function AmoutForm() {
   const [msg, setMsg] = useState("");
   const { currentUser } = useContext(AuthContext);
@@ -35,33 +36,55 @@ function AmoutForm() {
         typeofAmount,
         Msg,
         Id: uuid(),
+        date: new Date(),
       }),
     });
   };
   return (
-    <div>
+    <div className="formwrapper">
+      <div className="heading">
+        <h3 className="heading">ADD YOUR EXPENSES</h3>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
-          <input type="number" placeholder="Enter the amount..."></input>
+          {/*   <label htmlFor="amt">AMOUNT:</label> */}
+          <input
+            type="number"
+            placeholder="ENTER THE AMOUNT..."
+            id="amt"
+            className="field"
+          ></input>
         </div>
         <div>
-          <input type="text" placeholder="Name of the person..."></input>
+          {/*   <label id="person">GIVEN BY/TO WHOM:</label> */}
+          <input
+            type="text"
+            placeholder="GIVEN BY TO/WHOM.."
+            className="field"
+          ></input>
         </div>
-        <div>
-          <select name="Type">
-            <option value="CREDIT">CREDIT</option>
-            <option value="DEBIT">DEBIT</option>
+        <div className="type">
+          <label id="type">TYPE OF TRANSACTION: </label>
+          <select name="Type" id="type">
+            <option value="CREDIT" className="field">
+              CREDIT
+            </option>
+            <option value="DEBIT" className="field">
+              DEBIT
+            </option>
           </select>
         </div>
         <div>
           <textarea
+            id="msg"
             onChange={(e) => setMsg(e.target.value)}
-            placeholder="Enter a short message..."
+            placeholder="ENTER A SHORT MESSAGE FOR YOUR SELF.."
+            className="textfield"
           ></textarea>
         </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
+        <button type="submit" className="btn">
+          SUBMIT
+        </button>
       </form>
     </div>
   );

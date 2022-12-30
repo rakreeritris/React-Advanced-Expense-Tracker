@@ -5,8 +5,8 @@ import { Pie } from "react-chartjs-2";
 import { doc, onSnapshot } from "firebase/firestore";
 import { AuthContext } from "../context/AuthContext";
 import { db } from "../firebase";
-
-const labels = ["Credits,Debits"];
+import "../CSS/PieChart.css";
+const label = ["CREDITS AND DEBITS"];
 
 const PieChart = () => {
   const [credit, setCredit] = useState(0);
@@ -27,19 +27,23 @@ const PieChart = () => {
     currentUser.uid && getChats();
   }, [currentUser.uid]);
   let data = {
-    labels: labels,
+    labels: ["CREDIT", "DEBIT"],
     datasets: [
       {
-        label: "Credits and Debits",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "#0000ff",
+        backgroundColor: ["#fd0909", "#15ff00"],
+
         data: [credit, debit],
       },
     ],
   };
   return (
-    <div>
-      <Pie data={data} />
+    <div className="piechart">
+      <Pie
+        data={data}
+        height="200px"
+        width="400px"
+        options={{ maintainAspectRatio: false }}
+      />
     </div>
   );
 };

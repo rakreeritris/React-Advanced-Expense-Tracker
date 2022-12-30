@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
 import AmoutForm from "../Components/AmoutForm";
-import Credit from "../Components/Credit";
-import Debit from "../Components/Debit";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import img from "../Images/logo.jpg";
-import "./Home.css";
-import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-import logout from "../Images/logout.svg";
+import "../CSS/Home.css";
 import LogoutSharpIcon from "@mui/icons-material/LogoutSharp";
-/* import PieChart from "../Components/PieChart"; */
+import CreditAmount from "../Components/CreditAmount";
+import DebitAmount from "../Components/DebitAmount";
+import PieChart from "../Components/PieChart";
+import { Link } from "react-router-dom";
 function Home() {
   const { currentUser } = useContext(AuthContext);
   return (
@@ -34,29 +33,22 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className="creditsanddebits">
-        <div className="credit">
-          <span>CREDIT</span>
-          <div className="credit-amt">
-            <span>80</span>
-            <CurrencyRupeeIcon></CurrencyRupeeIcon>
-          </div>
+      <div className="Home">
+        <div className="creditsanddebits">
+          <Link to="/credit" className="link-credit">
+            <CreditAmount></CreditAmount>
+          </Link>
+          <Link to="/debit" className="link-debit">
+            <DebitAmount></DebitAmount>
+          </Link>
         </div>
-        <div className="debit">
-          <span>DEBIT</span>
-          <div className="debit-amt">
-            <span>80</span>
-            <CurrencyRupeeIcon></CurrencyRupeeIcon>
-          </div>
+        <div className="formandchart">
+          <AmoutForm></AmoutForm>
+          <PieChart></PieChart>
         </div>
-      </div>
-      <div>
-        <AmoutForm></AmoutForm>
       </div>
 
-      {/*   <div>
-        <PieChart></PieChart>
-      </div> */}
+      <div></div>
     </>
   );
 }

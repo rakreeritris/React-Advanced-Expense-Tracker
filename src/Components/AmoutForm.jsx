@@ -5,24 +5,24 @@ import { AuthContext } from "../context/AuthContext";
 import { v4 as uuid } from "uuid";
 import "../CSS/AmountForm.css";
 function AmoutForm() {
+  const [amt, setAmt] = useState(0);
+  const [Person, setPerson] = useState("");
   const [msg, setMsg] = useState("");
+  const [type, SetType] = useState("CREDIT");
   const { currentUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const amount = parseInt(e.target[0].value);
-    const person = e.target[1].value;
-    const typeofAmount = e.target[2].value;
+    const amount = parseInt(amt);
+    const person = Person;
+    const typeofAmount = type;
+    console.log(typeofAmount);
     const Msg = msg;
-    /*   console.log(amount,person,typeofAmount,Msg);
-    console.log(typeof(amount)); */
     const user = doc(db, "users", currentUser.uid);
     const docSnap = await getDoc(user);
 
     const prevCreditAmount = parseInt(docSnap.data().creditAmount);
     const prevDebitAmount = parseInt(docSnap.data().debitAmount);
-    /*   console.log(prevDebitAmount,typeof(prevDebitAmount));
-  console.log(prevCreditAmount,typeof(prevCreditAmount)); */
     await updateDoc(user, {
       creditAmount:
         typeofAmount === "CREDIT"
@@ -39,6 +39,9 @@ function AmoutForm() {
         date: new Date(),
       }),
     });
+    /*   setAmt(0);
+    setMsg("");
+    setPerson(""); */
   };
   return (
     <div className="formwrapper">
@@ -53,6 +56,8 @@ function AmoutForm() {
             placeholder="ENTER THE AMOUNT..."
             id="amt"
             className="field"
+            onChange={(e) => setAmt(e.target.value)}
+            value={amt}
           ></input>
         </div>
         <div>
@@ -61,11 +66,17 @@ function AmoutForm() {
             type="text"
             placeholder="GIVEN BY TO/WHOM.."
             className="field"
+            onChange={(e) => setPerson(e.target.value)}
+            value={Person}
           ></input>
         </div>
         <div className="type">
           <label id="type">TYPE OF TRANSACTION: </label>
-          <select name="Type" id="type">
+          <select
+            name="Type"
+            id="type"
+            onChange={(e) => SetType(e.target.value)}
+          >
             <option value="CREDIT" className="field">
               CREDIT
             </option>
@@ -80,6 +91,7 @@ function AmoutForm() {
             onChange={(e) => setMsg(e.target.value)}
             placeholder="ENTER A SHORT MESSAGE FOR YOUR SELF.."
             className="textfield"
+            value={msg}
           ></textarea>
         </div>
         <button type="submit" className="btn">

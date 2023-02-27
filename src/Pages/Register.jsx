@@ -21,7 +21,7 @@ function Register() {
     const email = e.target[1].value;
     const password = e.target[2].value;
     const file = e.target[3].files[0];
-    /*     console.log(file); */
+    console.log(file);
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       console.log("res is ", res);
@@ -37,7 +37,7 @@ function Register() {
         },
         (error) => {
           setError(true);
-          setErrMsg(error);
+          setErrMsg("File upload is not sucessfull");
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -59,8 +59,9 @@ function Register() {
         }
       );
     } catch (error) {
+      console.log(error);
       setError(true);
-      setErrMsg(error);
+      setErrMsg("Something is wrong with your credentials");
     }
   };
   return (
@@ -74,7 +75,6 @@ function Register() {
           <div>
             <span className="title">REGISTER</span>
           </div>
-          {err && <span>something went wrong -{errMsg}</span>}
           <form onSubmit={handleSubmit}>
             <div>
               <input

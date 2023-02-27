@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { v4 as uuid } from "uuid";
 import "../CSS/AmountForm.css";
+import moment from "moment/moment";
 function AmoutForm() {
   const [amt, setAmt] = useState(0);
   const [Person, setPerson] = useState("");
@@ -35,8 +36,8 @@ function AmoutForm() {
         person,
         typeofAmount,
         Msg,
-        Id: uuid(),
-        date: new Date(),
+        id: uuid(),
+        date: moment().format("MMMM Do YYYY, h:mm:ss a"),
       }),
     });
     /*   setAmt(0);
